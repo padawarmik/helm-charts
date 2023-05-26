@@ -9,11 +9,13 @@ podSecurityContext:
     type: RuntimeDefault
   # fsGroupChangePolicy: "OnRootMismatch"
   runAsNonRoot: true
+
+securityContext:
   allowPrivilegeEscalation: false
   readOnlyRootFilesystem: true
   capabilities:
     drop: ["ALL"]
-
+    
 probes:
   # -- Liveness probe configuration
   # @default -- See below

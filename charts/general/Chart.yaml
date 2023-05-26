@@ -2,7 +2,7 @@ apiVersion: v2
 name: general
 description: Template for helm with default settings
 type: application
-version: 1.5.0-1
+version: 1.5.0-2
 # renovate datasource=docker depName=ghcr.io/usememos/memos
 appVersion: 1.5.0
 kubeVersion: ">=1.22.0-0"
