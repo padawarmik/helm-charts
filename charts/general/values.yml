@@ -1,0 +1,15 @@
+podSecurityContext:
+  # -- Run as `nobody` user
+  runAsUser: 65534
+  # -- Run as `nobody` group
+  runAsGroup: 65534
+  # -- Volume binds will be granted to `nobody` group
+  fsGroup: 65534
+  seccompProfile:
+    type: RuntimeDefault
+  # fsGroupChangePolicy: "OnRootMismatch"
+  runAsNonRoot: true
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop: ["ALL"]
