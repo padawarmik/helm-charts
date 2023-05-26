@@ -42,4 +42,19 @@ entries:
     urls:
     - https://github.com/padawarmik/helm-charts/releases/download/general-1.5.0/general-1.5.0.tgz
     version: 1.5.0
-generated: "2023-05-26T21:57:22.376414406Z"
+  - apiVersion: v2
+    appVersion: 1.5.0
+    created: "2023-05-26T23:01:04.864550713Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 1.5.0
+    description: Template for helm with default settings
+    digest: e022d594a2d9b96ad48bfe6ace248b8b518de42499352f34b9523e7dabd6ac91
+    kubeVersion: '>=1.22.0-0'
+    name: general
+    type: application
+    urls:
+    - https://github.com/padawarmik/helm-charts/releases/download/general-1.5.0-1/general-1.5.0-1.tgz
+    version: 1.5.0-1
+generated: "2023-05-26T23:01:04.864562013Z"
