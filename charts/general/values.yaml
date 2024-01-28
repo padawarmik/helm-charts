@@ -20,3 +20,5 @@ controllers:
           readOnlyRootFilesystem: true
           capabilities:
             drop: ["ALL"]
+
+extraObjects: []
