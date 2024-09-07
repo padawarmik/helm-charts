@@ -34,7 +34,7 @@ persistence:
   tmp:
     enabled: true
     type: emptyDir
-    sizeLimit: 2 GiB
+    sizeLimit: 2Gi
     globalMounts:
       - path : /tmp
 
