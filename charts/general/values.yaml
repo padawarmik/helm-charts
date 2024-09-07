@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/common-3.0.4/charts/library/common/values.schema.json
 defaultPodOptions:
-  automountServiceAccountToken: true
+  automountServiceAccountToken: false
   enableServiceLinks: false
   securityContext:
     # -- Run as `nobody` user
@@ -13,9 +13,13 @@ defaultPodOptions:
       type: RuntimeDefault
     # fsGroupChangePolicy: "OnRootMismatch"
     runAsNonRoot: true
+  priorityClassName: normal-priority
 
 controllers:
   main:
+    revisionHistoryLimit: 0
+    annotations: 
+      reloader.stakater.com/auto: "true"
     containers:
       main:
         securityContext:
@@ -25,3 +29,15 @@ controllers:
             drop: ["ALL"]
 
 extraObjects: []
+
+persistence:
+  tmp:
+    enabled: true
+    type: emptyDir
+    sizeLimit: 2 GiB
+    globalMounts:
+      - path : /tmp
+
+code:
+  enabled: false
+  ingressHost: ""
