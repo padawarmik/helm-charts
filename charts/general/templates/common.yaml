@@ -49,6 +49,5 @@ ingress:
 {{ end }}
 {{- end -}}
 {{- $_ := mergeOverwrite .Values (include "general.hardcodedValues" . | fromYaml) -}}
-# {{ $.Values }}
 {{/* Render the templates */}}
 {{ include "bjw-s.common.loader.generate" . }}
