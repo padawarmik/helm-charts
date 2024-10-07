@@ -30,7 +30,7 @@ controllers:
 service:
   code:
     type: ClusterIP
-    controller: main
+    controller: code
     ports:
       http:
         port: 8081
