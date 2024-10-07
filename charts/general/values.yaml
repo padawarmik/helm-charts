@@ -41,3 +41,4 @@ persistence:
 code:
   enabled: false
   ingressHost: ""
+  dataPath: ""

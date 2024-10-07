@@ -8,23 +8,25 @@ global:
   nameOverride: "{{ .Release.Name }}"
 {{ if $.Values.code.enabled }}
 controllers:
-  main:
+  code:
     containers:
+      main:
+        enabled: false
       code:
         enabled: true
         image:
           repository: ghcr.io/coder/code-server
-          tag: 4.92.2
+          tag: latest
         args:
           - --auth
           - "none"
           - --user-data-dir
-          - "/data/.vscode"
+          - "{{ $.Values.code.dataPath }}/.vscode"
           - --extensions-dir
-          - "/data/.vscode"
+          - "{{ $.Values.code.dataPath }}/.vscode"
           - --port
           - "8081"
-          - "/data"
+          - "{{ $.Values.code.dataPath }}"
 service:
   code:
     type: ClusterIP
@@ -45,6 +47,16 @@ ingress:
             pathType: Prefix
             service:
               identifier: code
+
+persistence:
+  nonexistent:
+    enabled: true
+    type: emptyDir
+    sizeLimit: 2Gi
+    advancedMounts:
+      code:
+        code:
+          - path: /nonexistent
 {{ end }}
 {{ end }}
 {{- end -}}
