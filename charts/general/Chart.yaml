@@ -2,10 +2,10 @@ apiVersion: v2
 name: general
 description: Template for helm with default settings
 type: application
-version: 3.4.2
+version: 3.5.1
 # renovate datasource=docker depName=ghcr.io/usememos/memos
 kubeVersion: ">=1.22.0-0"
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
-    version: 3.4.0
+    version: 3.5.1

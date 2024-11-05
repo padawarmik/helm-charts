@@ -2,16 +2,13 @@
 {{- include "bjw-s.common.loader.init" . }}
 
 {{- define "general.hardcodedValues" -}}
-# Set the nameOverride based on the release name if no override has been set
 {{ if not .Values.global.nameOverride }}
 global:
   nameOverride: "{{ .Release.Name }}"
 {{ if $.Values.code.enabled }}
 controllers:
-  code:
+  main:
     containers:
-      main:
-        enabled: false
       code:
         enabled: true
         image:
@@ -30,7 +27,7 @@ controllers:
 service:
   code:
     type: ClusterIP
-    controller: code
+    controller: main
     ports:
       http:
         port: 8081
@@ -54,7 +51,7 @@ persistence:
     type: emptyDir
     sizeLimit: 2Gi
     advancedMounts:
-      code:
+      main:
         code:
           - path: /nonexistent
 {{ end }}
