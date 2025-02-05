@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/common-3.0.4/charts/library/common/values.schema.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/common-3.6.1/charts/library/common/values.schema.json
 defaultPodOptions:
   automountServiceAccountToken: false
   enableServiceLinks: false
@@ -20,13 +20,12 @@ controllers:
     revisionHistoryLimit: 0
     annotations: 
       reloader.stakater.com/auto: "true"
-    containers:
-      main:
-        securityContext:
-          allowPrivilegeEscalation: false
-          readOnlyRootFilesystem: true
-          capabilities:
-            drop: ["ALL"]
+    defaultContainerOptions:
+      securityContext:
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
+        capabilities:
+          drop: ["ALL"]
 
 extraObjects: []
 
