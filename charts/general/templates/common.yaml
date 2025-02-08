@@ -12,7 +12,7 @@ controllers:
       code:
         enabled: true
         image:
-          repository: ghcr.io/coder/code-server
+          repository: gitpod/openvscode-server
           tag: latest
         args:
           - --auth
