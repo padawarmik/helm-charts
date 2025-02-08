@@ -27,9 +27,6 @@ controllers:
           - --port
           - "8081"
           - "{{ $.Values.code.dataPath }}"
-        env:
-          DOCKER_USER: {{ coalesce $.Values.controllers.main.containers.main.securityContext.runAsUser $.Values.defaultPodOptions.securityContext.runAsUser}}
-
 service:
   code:
     type: ClusterIP
