@@ -27,8 +27,6 @@ controllers:
         capabilities:
           drop: ["ALL"]
 
-extraObjects: []
-
 persistence:
   tmp:
     enabled: true
@@ -36,8 +34,3 @@ persistence:
     sizeLimit: 2Gi
     globalMounts:
       - path : /tmp
-
-code:
-  enabled: false
-  ingressHost: ""
-  dataPath: ""
